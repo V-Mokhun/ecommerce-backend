@@ -1,6 +1,6 @@
 import {Rule} from 'sanity'
 
-// Brand, Price, Status, isDiscount, 
+// Brand, Price, Status, isDiscount,
 
 export default {
   name: 'product',
@@ -29,7 +29,15 @@ export default {
       name: 'colors',
       type: 'array',
       title: 'Colors',
-      of: [{type: 'string'}],
+      of: [
+        {
+          type: 'color',
+          options: {
+            disableAlpha: true,
+						colorList: ['#FFF', "#000"]
+          },
+        },
+      ],
       validation: (Rule: Rule) => Rule.required().min(1).unique(),
     },
     {
@@ -83,4 +91,12 @@ export default {
     {name: 'isFreeDelivery', type: 'boolean', title: 'Free Delivery'},
     {name: 'isGuaranteed', type: 'boolean', title: 'Guaranteed'},
   ],
+  initialValue: {
+    isOnSale: false,
+    isNew: false,
+    isInStock: true,
+    isBestSeller: false,
+    isFreeDelivery: false,
+    isGuaranteed: false,
+  },
 }
