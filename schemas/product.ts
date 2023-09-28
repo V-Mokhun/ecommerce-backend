@@ -14,6 +14,16 @@ export default {
       validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'name',
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: 'price',
       type: 'number',
       title: 'Price',
@@ -31,11 +41,18 @@ export default {
       title: 'Colors',
       of: [
         {
-          type: 'color',
-          options: {
-            disableAlpha: true,
-						colorList: ['#FFF', "#000"]
-          },
+          title: 'Color',
+          name: 'colorItem',
+          type: 'object',
+          fields: [
+            {name: 'name', type: 'string', title: 'Name'},
+            {
+              name: 'value',
+              type: 'color',
+              title: 'Value',
+              options: {disableAlpha: true, colorList: ['#FFF', '#000']},
+            },
+          ],
         },
       ],
       validation: (Rule: Rule) => Rule.required().min(1).unique(),
@@ -67,6 +84,12 @@ export default {
           ],
         },
       ],
+    },
+    {
+      name: 'category',
+      type: 'reference',
+      title: 'Category',
+      to: [{type: 'category'}],
     },
     {
       name: 'isOnSale',
