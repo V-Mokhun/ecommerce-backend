@@ -12,6 +12,22 @@ export default {
       validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
+      name: 'shortName',
+      type: 'string',
+      title: 'Short Name',
+      validation: (Rule: Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'name',
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: 'icon',
       type: 'image',
       title: 'Icon',
@@ -22,6 +38,9 @@ export default {
       type: 'image',
       title: 'Image',
       validation: (Rule: Rule) => Rule.required(),
+			options: {
+				hotspot: true
+			}
     },
     {
       name: 'products',

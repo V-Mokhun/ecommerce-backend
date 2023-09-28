@@ -33,7 +33,7 @@ export default {
       name: 'rating',
       type: 'number',
       title: 'Rating',
-      validation: (Rule: Rule) => Rule.min(1).max(5),
+      validation: (Rule: Rule) => Rule.min(1).max(5).precision(1),
     },
     {
       name: 'colors',
@@ -62,6 +62,9 @@ export default {
       type: 'image',
       title: 'Image',
       validation: (Rule: Rule) => Rule.required(),
+			options: {
+				hotspot: true
+			}
     },
     {
       name: 'images',
