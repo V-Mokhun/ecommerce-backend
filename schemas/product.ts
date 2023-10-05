@@ -41,16 +41,10 @@ export default {
       title: 'Colors',
       of: [
         {
-          title: 'Color',
-          name: 'colorItem',
-          type: 'object',
-          fields: [
-            {name: 'name', type: 'string', title: 'Name'},
+          type: 'reference',
+          to: [
             {
-              name: 'value',
-              type: 'color',
-              title: 'Value',
-              options: {disableAlpha: true, colorList: ['#FFF', '#000']},
+              type: 'colorItem',
             },
           ],
         },
@@ -62,9 +56,9 @@ export default {
       type: 'image',
       title: 'Image',
       validation: (Rule: Rule) => Rule.required(),
-			options: {
-				hotspot: true
-			}
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'images',
@@ -78,12 +72,11 @@ export default {
       title: 'Details',
       of: [
         {
-          title: 'Detail',
-          name: 'detail',
-          type: 'object',
-          fields: [
-            {name: 'name', type: 'string', title: 'Name'},
-            {name: 'value', type: 'string', title: 'Value'},
+          type: 'reference',
+          to: [
+            {
+              type: 'productDetail',
+            },
           ],
         },
       ],
