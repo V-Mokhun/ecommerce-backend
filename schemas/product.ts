@@ -41,15 +41,10 @@ export default {
       title: 'Colors',
       of: [
         {
-          type: 'reference',
-          to: [
-            {
-              type: 'colorItem',
-            },
-          ],
+          type: 'colorItem',
         },
       ],
-      validation: (Rule: Rule) => Rule.required().min(1).unique(),
+      validation: (Rule: Rule) => Rule.unique(),
     },
     {
       name: 'mainImage',
@@ -72,12 +67,7 @@ export default {
       title: 'Details',
       of: [
         {
-          type: 'reference',
-          to: [
-            {
-              type: 'productDetail',
-            },
-          ],
+          type: 'productDetail',
         },
       ],
     },
