@@ -50,5 +50,19 @@ export default {
       validation: (Rule: Rule) => Rule.required(),
       initialValue: 'md',
     },
+    {
+      name: 'showOn',
+      type: 'string',
+      title: 'Show On',
+      options: {
+        list: [
+          {title: 'Home Page', value: 'home'},
+          {title: 'Products Page', value: 'products'},
+        ],
+        layout: 'radio',
+      },
+      validation: (Rule: Rule) => Rule.required(),
+      initialValue: 'home',
+    },
   ],
 }
