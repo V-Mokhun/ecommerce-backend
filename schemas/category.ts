@@ -3,7 +3,7 @@ import {Rule} from 'sanity'
 export default {
   name: 'category',
   type: 'document',
-  title: 'Category',
+  title: 'Categories',
   fields: [
     {
       name: 'name',

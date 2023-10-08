@@ -1,11 +1,9 @@
 import {Rule} from 'sanity'
 
-// Brand, Price, Status, isDiscount,
-
 export default {
   name: 'product',
   type: 'document',
-  title: 'Product',
+  title: 'Products',
   fields: [
     {
       name: 'name',
