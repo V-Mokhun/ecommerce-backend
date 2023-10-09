@@ -34,6 +34,13 @@ export default {
       validation: (Rule: Rule) => Rule.min(1).max(5).precision(1),
     },
     {
+      name: 'brand',
+      type: 'reference',
+      title: 'Brand',
+      to: [{type: 'brand'}],
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: 'colors',
       type: 'array',
       title: 'Colors',
