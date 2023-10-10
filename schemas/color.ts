@@ -1,13 +1,16 @@
+import {Rule} from 'sanity'
+
 export default {
   title: 'Color',
   name: 'colorItem',
-  type: 'object',
+  type: 'document',
   fields: [
-    {name: 'name', type: 'string', title: 'Name'},
+    {name: 'name', type: 'string', title: 'Name', validation: (Rule: Rule) => Rule.required()},
     {
       name: 'value',
       type: 'color',
       title: 'Value',
+      validation: (Rule: Rule) => Rule.required(),
       options: {
         disableAlpha: true,
         colorList: [

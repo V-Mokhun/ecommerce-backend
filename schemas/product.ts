@@ -46,7 +46,8 @@ export default {
       title: 'Colors',
       of: [
         {
-          type: 'colorItem',
+          type: 'reference',
+          to: [{type: 'colorItem'}],
         },
       ],
       validation: (Rule: Rule) => Rule.unique(),
