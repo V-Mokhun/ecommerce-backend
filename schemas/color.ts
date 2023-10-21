@@ -1,7 +1,7 @@
 import {Rule} from 'sanity'
 
 export default {
-  title: 'Color',
+  title: 'Colors',
   name: 'colorItem',
   type: 'document',
   fields: [

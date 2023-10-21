@@ -28,6 +28,23 @@ export default {
       validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
+      name: 'isOnSale',
+      type: 'boolean',
+      title: 'On Sale',
+    },
+    {
+      name: 'oldPrice',
+      type: 'number',
+      title: 'Old Price',
+      validation: (Rule: Rule) => Rule.min(1).greaterThan(Rule.valueOfField('price')),
+    },
+    {
+      name: 'salePercentage',
+      type: 'number',
+      title: 'Sale Percentage, %',
+      validation: (Rule: Rule) => Rule.min(1).max(99).integer(),
+    },
+    {
       name: 'rating',
       type: 'number',
       title: 'Rating',
@@ -82,23 +99,6 @@ export default {
       type: 'reference',
       title: 'Category',
       to: [{type: 'category'}],
-    },
-    {
-      name: 'isOnSale',
-      type: 'boolean',
-      title: 'On Sale',
-    },
-    {
-      name: 'salePrice',
-      type: 'number',
-      title: 'Sale Price',
-      validation: (Rule: Rule) => Rule.min(1).lessThan(Rule.valueOfField('price')),
-    },
-    {
-      name: 'salePercentage',
-      type: 'number',
-      title: 'Sale Percentage, %',
-      validation: (Rule: Rule) => Rule.min(1).max(99).integer(),
     },
     {name: 'isNew', type: 'boolean', title: 'New'},
     {name: 'isInStock', type: 'boolean', title: 'In Stock'},
