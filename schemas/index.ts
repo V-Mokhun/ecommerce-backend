@@ -5,6 +5,8 @@ import productDetailSchema from './objects/product-detail'
 import bannerSchema from './banner'
 import brandSchema from './brand'
 import contactSchema from './contact'
+import faqItemSchema from './objects/faq-item'
+import faqTopicSchema from './faq-topic'
 
 export const schemaTypes = [
   productSchema,
@@ -14,4 +16,6 @@ export const schemaTypes = [
   bannerSchema,
   brandSchema,
   contactSchema,
+  faqItemSchema,
+  faqTopicSchema,
 ]
