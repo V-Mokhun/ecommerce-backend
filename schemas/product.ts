@@ -17,7 +17,8 @@ export default {
       title: 'Slug',
       options: {
         source: 'name',
-        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+        slugify: (input: string) =>
+          input.toLowerCase().replaceAll('.', '').replace(/\s+/g, '-').slice(0, 200),
       },
       validation: (Rule: Rule) => Rule.required(),
     },
@@ -99,6 +100,18 @@ export default {
       type: 'reference',
       title: 'Category',
       to: [{type: 'category'}],
+    },
+    {
+      name: 'similarProducts',
+      type: 'array',
+      title: 'Similar Products',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'product'}],
+        },
+      ],
+      validation: (Rule: Rule) => Rule.unique(),
     },
     {name: 'isNew', type: 'boolean', title: 'New'},
     {name: 'isInStock', type: 'boolean', title: 'In Stock'},
