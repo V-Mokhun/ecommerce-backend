@@ -29,6 +29,12 @@ export default {
       validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
+      name: 'quantity',
+      type: 'number',
+      title: 'Quantity',
+      validation: (Rule: Rule) => Rule.required().min(0),
+    },
+    {
       name: 'isOnSale',
       type: 'boolean',
       title: 'On Sale',
