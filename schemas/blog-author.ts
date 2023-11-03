@@ -10,7 +10,7 @@ export default {
       name: 'blogPosts',
       type: 'array',
       title: 'Blog Posts',
-      of: [{type: 'blogPost'}],
+      of: [{type: 'reference', to: [{type: 'blogPost'}]}],
     },
   ],
 }

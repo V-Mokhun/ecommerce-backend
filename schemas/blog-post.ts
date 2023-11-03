@@ -14,7 +14,12 @@ export default {
       options: {
         source: 'title',
         slugify: (input: string) =>
-          input.toLowerCase().replaceAll('.', '').replace(/\s+/g, '-').slice(0, 200),
+          input
+            .toLowerCase()
+            .replaceAll('.', '')
+            .replaceAll(':', '')
+            .replace(/\s+/g, '-')
+            .slice(0, 200),
       },
     },
     {
@@ -49,18 +54,36 @@ export default {
       title: 'Author',
       type: 'reference',
       to: [{type: 'blogAuthor'}],
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'blogTag'}]}],
+      validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'blogCategory'}]}],
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'blogCategory'}],
+      validation: (Rule: Rule) => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image',
+      author: 'author.name',
+    },
+    prepare(selection: {title: string; author: string; media: string}) {
+      const {title, author, media} = selection
+      return {
+        title,
+        media,
+        subtitle: `Written by: ${author ? author : 'unknown'}`,
+      }
+    },
+  },
 }
