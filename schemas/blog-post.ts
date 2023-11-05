@@ -38,6 +38,12 @@ export default {
       },
     },
     {
+      name: 'description',
+      type: 'text',
+      title: 'Description',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'array',
